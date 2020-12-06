@@ -1,0 +1,30 @@
+<nav aria-label="Page navigation example">
+  <ul class="pagination">
+    <li class="page-item" (click)="setActivePage(1)">
+      <a class="page-link" aria-label="First">
+        <span aria-hidden="true">&laquo;&laquo;</span>
+        <span class="sr-only">First</span>
+      </a>
+    </li>
+    <li class="page-item" (click)="setActivePage(activePage-1)">
+      <a class="page-link" aria-label="Previous">
+        <span aria-hidden="true">&laquo;</span>
+        <span class="sr-only">Previous</span>
+      </a>
+    </li>
+    <li class="page-item" *ngFor="let page of pageNumbers" (click)="setActivePage(page)"
+    ><a class="page-link">{{page}}</a></li>
+    <li class="page-item" (click)="setActivePage(activePage+1)">
+      <a class="page-link" aria-label="Next">
+        <span aria-hidden="true">&raquo;</span>
+        <span class="sr-only">Next</span>
+      </a>
+    </li>
+    <li class="page-item" (click)="setActivePage(numbOfPages)">
+      <a class="page-link" aria-label="Last">
+        <span aria-hidden="true">&raquo;&raquo;</span>
+        <span class="sr-only">Last</span>
+      </a>
+    </li>
+  </ul>
+</nav>

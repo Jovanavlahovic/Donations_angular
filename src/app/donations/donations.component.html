@@ -1,0 +1,18 @@
+<div class="row">
+    <div class="col-6">
+        <app-pagination [numbOfItems]="donationList?.count" [pageSize]="params.pageSize"
+        (activePageNumb)="setActivePage($event)"
+        ></app-pagination><br>
+        <label for="">Estimated value:</label>
+        <input type="number" name="minValue" id="minValue" placeholder="Min" [(ngModel)]="params.filter.minValue" (change)="getDonations()">
+        <input type="number" name="maxValue" id="maxValue" placeholder="Max" [(ngModel)]="params.filter.maxValue" (change)="getDonations()"><br>
+        <label for="select">Select category:</label>
+        <select name="select" id="select" [(ngModel)]="params.filter.categories" (change)="getDonations()">
+            <option value="">All</option>
+            <option *ngFor="let c of categories; let i = index;" [value]="categoryValues[i]">{{c.slice(0,1).toUpperCase()+c.slice(1)}}</option>
+        </select>
+    </div>
+    <div class="col-6">
+        <app-donation-list [donations]="donationList?.donors"></app-donation-list>
+    </div>
+</div>
